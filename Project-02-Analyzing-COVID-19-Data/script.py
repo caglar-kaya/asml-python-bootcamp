@@ -65,14 +65,24 @@ df.rename(columns=
 df['Date'] = df.Date.astype('str')
 df['Date'] = pd.to_datetime(df.Date.str[0:4] + '-' + df.Date.str[4:6] + '-' + df.Date.str[6:8])
 
-# 2.7. Filter rows for year 2021 only
-df = df[df['Date'].dt.year == 2021]
+# 2.7. Filter rows only for year 2020
+df_2020 = df[df['Date'].dt.year == 2020]
 
-print(df.shape) # [66 rows x 10 columns]
+print(df_2020.shape) # [291 rows x 10 columns]
+
+# 2.8. Filter rows only for year 2021
+df_2021 = df[df['Date'].dt.year == 2021]
+
+print(df_2021.shape) # [66 rows x 10 columns]
 
 # 3. LOAD
 
-# 3.1. Store transformed daily covid data as a CSV file
-df.to_csv('transformed_daily_covid_data.csv')
+# 3.1. Store transformed daily covid data for 2020 as a CSV file
+df_2020.to_csv('transformed_daily_covid_data_for_2020.csv')
 
-print("Transformed daily covid data is successfully stored in \"transformed_daily_covid_data.csv\" file.")
+print("Transformed daily covid data for 2020 is successfully stored in \"transformed_daily_covid_data_for_2020.csv\" file.")
+
+# 3.2. Store transformed daily covid data for 2021 as a CSV file
+df_2021.to_csv('transformed_daily_covid_data_for_2021.csv')
+
+print("Transformed daily covid data for 2021 is successfully stored in \"transformed_daily_covid_data_for_2021.csv\" file.")
