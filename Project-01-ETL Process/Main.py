@@ -17,7 +17,7 @@ st.markdown("- streamlit Package")
 
 st.markdown("### 2. How it Works")
 
-st.markdown("> The project is divided into four main steps:")
+st.markdown("> The project is divided into three main steps:")
 
 st.markdown("2.1. **Creating Directories:** Code checks and creates two directories, \"Company-A\" and \"Company-B\" if they don't exist already.")
 
