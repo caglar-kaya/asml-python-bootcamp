@@ -23,12 +23,12 @@ else:
 # 2.1. Load daily covid data into a pandas DataFrame
 df = pd.read_json('daily_covid_data.json')
 
-print(df.shape) # [420 rows x 25 columns]
+print('Raw daily covid data (columns, rows) =', df.shape) # [420 rows x 25 columns]
 
 # 2.2. Keep only records that include data from all 56 states
 df = df[df.states == 56]
 
-print(df.shape) # [357 rows x 25 columns]
+print('Data from all 56 states (columns, rows) =', df.shape) # [357 rows x 25 columns]
 
 # 2.3. Remove unnecessary columns
 df = df.drop(columns=
@@ -38,7 +38,7 @@ df = df.drop(columns=
         'recovered', 'total'
     ])
 
-print(df.shape) # [357 rows x 10 columns]
+print('After removing unnecessary columns (columns, rows) =', df.shape) # [357 rows x 10 columns]
 
 # 2.4. Reorder columns
 df = df[[
@@ -68,12 +68,12 @@ df['Date'] = pd.to_datetime(df.Date.str[0:4] + '-' + df.Date.str[4:6] + '-' + df
 # 2.7. Filter rows only for year 2020
 df_2020 = df[df['Date'].dt.year == 2020]
 
-print(df_2020.shape) # [291 rows x 10 columns]
+print('After filtering rows only for year 2020 (columns, rows) =', df_2020.shape) # [291 rows x 10 columns]
 
 # 2.8. Filter rows only for year 2021
 df_2021 = df[df['Date'].dt.year == 2021]
 
-print(df_2021.shape) # [66 rows x 10 columns]
+print('After filtering rows only for year 2021 (columns, rows) =', df_2021.shape) # [66 rows x 10 columns]
 
 # 3. LOAD
 
